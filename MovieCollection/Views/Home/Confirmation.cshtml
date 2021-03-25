@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = Model.Title;
+}
+
+@model MovieCollection.Models.Movie
+
+<h1><span style="color:rebeccapurple;">@Model.Title</span> has been added to the list</h1>
+
+<div>
+    @if (Model.Edited == true)
+    {
+        @:This movie has been edited.
+    }
+    else
+    {
+        @: This movie has not been edited.
+    }
+</div>
+
+<div>
+    Click <a asp-action="MovieList">here</a> to see Joel's movie list.
+</div>
+
+<div>
+    <a asp-action="MovieApplication">Add another Movie</a>
+</div>

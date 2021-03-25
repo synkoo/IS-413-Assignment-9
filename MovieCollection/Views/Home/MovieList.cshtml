@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Joel's Movie List";
+}
+
+@model MovieListViewModel
+
+<h1>@ViewBag.Title</h1>
+
+<div>
+    <h2>Here is the list of movies entered:</h2>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Edited</th>
+                <th>Lent To</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model.Movies)
+            {
+            <tr>
+                <td>@x.Category</td>
+                <td>@x.Title</td>
+                <td>@x.Year</td>
+                <td>@x.Director</td>
+                <td>@x.Rating</td>
+                <td>@x.Edited</td>
+                <td>@x.LentTo</td>
+                <td>@x.Notes</td>
+                @*Button to direct to the edit page*@
+                <td>
+                    <form asp-action="EditMovie" method="GET">
+                        <input type="hidden" value="@x.MovieId" name="MovieId" />
+                        <button class="btn-info rounded btn-sm" type="submit">Edit</button>
+                    </form>
+                </td>
+                @*Button to delete the movie*@
+                <td>
+                    <form asp-action="DeleteMovie" method="POST">
+                        <input type="hidden" value="@x.MovieId" name="MovieId" />
+                        <button class="btn-danger rounded btn-sm" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

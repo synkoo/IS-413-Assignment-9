@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Joel Hilton Film Collection</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico"/>
+</head>
+<body>
+    <header>
+        @*Navigation menu shared across all views*@
+        <nav class="navbar navbar-dark bg-dark fixed-top text-white">
+            <div class="container">
+                <ul>
+                    <li><a class="navbar-brand" asp-action="Index">Home</a></li>
+                    <li><a asp-action="MyPodcasts">My Podcasts</a></li>
+                    <li><a asp-action="MovieSubmit">Add a Movie</a></li>
+                    <li><a asp-action="MovieList">Movie List</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container" style="margin-top:100px">
+        @RenderBody()
+    </div>
+
+    <br />
+    <br />
+    <footer class="footer">©2021 JH Film</footer>
+</body>
+</html>
